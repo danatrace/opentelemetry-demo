@@ -62,7 +62,9 @@ bash ./deploy-kubernetes.sh
 Set `KUBE_CONTEXT`, `NAMESPACE`, or `RELEASE` before running the script to
 override the current Kubernetes context or the default deployment names. The
 script creates or updates the `dt-credentials` Kubernetes Secret; the chart's
-OpenTelemetry Collector uses it to export OTLP telemetry to Dynatrace.
+OpenTelemetry Collector uses it to export OTLP telemetry to Dynatrace. The
+script runs `kubectl` through `sudo` while retaining the current user's
+`KUBECONFIG` (or `~/.kube/config`).
 
 ## Documentation
 
