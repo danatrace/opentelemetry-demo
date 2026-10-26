@@ -44,6 +44,26 @@ your preferred deployment method:
 - [Docker](https://opentelemetry.io/docs/demo/docker_deployment/)
 - [Kubernetes](https://opentelemetry.io/docs/demo/kubernetes_deployment/)
 
+### Deploy this Astroshop chart
+
+With `kubectl` configured for your cluster and Helm installed, clone this repo
+and run the deployment script:
+
+```bash
+git clone https://github.com/danatrace/opentelemetry-demo.git
+cd opentelemetry-demo
+export DT_ENDPOINT="https://<your-tenant>.live.dynatrace.com/api/v2/otlp"
+read -rsp "Dynatrace API token: " DT_API_TOKEN
+echo
+export DT_API_TOKEN
+bash ./deploy-kubernetes.sh
+```
+
+Set `KUBE_CONTEXT`, `NAMESPACE`, or `RELEASE` before running the script to
+override the current Kubernetes context or the default deployment names. The
+script creates or updates the `dt-credentials` Kubernetes Secret; the chart's
+OpenTelemetry Collector uses it to export OTLP telemetry to Dynatrace.
+
 ## Documentation
 
 For detailed documentation, see [Demo Documentation][docs]. If you're curious
