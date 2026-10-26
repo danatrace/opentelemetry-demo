@@ -98,7 +98,7 @@ jobs:
         include:
           - service: raw-data-persistence
             runtime: nodejs
-            runtime-version: "22"
+            runtime-version: "24.22.1"
             source-dir: src-dt/cloud-backend/raw-data-persistence/src
           - service: reporting
             runtime: python
