@@ -2,10 +2,16 @@
 # SPDX-License-Identifier: Apache-2.0
 
 
+FROM amazoncorretto:21.0.13-alpine3.24 AS java-runtime
+
 FROM apache/kafka:3.9.1
 
 USER root
 ARG OTEL_JAVA_AGENT_VERSION
+COPY --from=java-runtime /usr/lib/jvm /usr/lib/jvm
+
+ENV JAVA_HOME=/usr/lib/jvm/default-jvm
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 USER appuser
 
