@@ -42,7 +42,7 @@ RUN npm ci --omit=dev
 
 # -----------------------------------------------------------------------------
 
-FROM gcr.io/distroless/nodejs24-debian12:nonroot
+FROM docker.io/library/node:24.22.1-slim
 
 WORKDIR /app
 
@@ -55,6 +55,8 @@ COPY ./src/frontend/public/ public/
 
 COPY ./src/frontend/utils/telemetry/Instrumentation.js Instrumentation.js
 
+USER node
+
 EXPOSE ${FRONTEND_PORT}
 
-CMD ["--require=./Instrumentation.js", "server.js"]
+CMD ["node", "--require=./Instrumentation.js", "server.js"]
