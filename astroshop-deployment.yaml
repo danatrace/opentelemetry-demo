@@ -1254,7 +1254,7 @@ spec:
         - secretRef:
             name: dt-credentials
         image: otel/opentelemetry-collector-contrib:0.135.0
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         livenessProbe:
           httpGet:
             path: /
@@ -1364,7 +1364,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-accounting
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: accounting
         resources:
           limits:
@@ -1441,7 +1441,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-ad
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: ad
         ports:
         - containerPort: 8080
@@ -1518,7 +1518,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-cart
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: cart
         ports:
         - containerPort: 8080
@@ -1613,7 +1613,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-dynatrace-checkout
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: checkout
         ports:
         - containerPort: 8080
@@ -1691,7 +1691,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-currency
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: currency
         ports:
         - containerPort: 8080
@@ -1759,7 +1759,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-email
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: email
         ports:
         - containerPort: 8080
@@ -1832,7 +1832,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: ghcr.io/open-feature/flagd:v0.12.8
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: flagd
         ports:
         - containerPort: 8013
@@ -1872,7 +1872,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-flagd-ui
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: flagd-ui
         ports:
         - containerPort: 4000
@@ -1959,7 +1959,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-fraud-detection
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: fraud-detection
         resources:
           limits:
@@ -2066,7 +2066,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-dynatrace-frontend
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: frontend
         ports:
         - containerPort: 8080
@@ -2161,7 +2161,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-frontend-proxy
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: frontend-proxy
         ports:
         - containerPort: 8080
@@ -2229,7 +2229,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-image-provider
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: image-provider
         ports:
         - containerPort: 8081
@@ -2247,7 +2247,7 @@ spec:
         - --nginx.scrape-uri=http://localhost:8081/nginx/status
         env: []
         image: nginx/nginx-prometheus-exporter:1.3.0
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: nginx-exporter
         ports:
         - containerPort: 9113
@@ -2311,7 +2311,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-kafka
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: kafka
         ports:
         - containerPort: 9092
@@ -2401,7 +2401,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-dynatrace-load-generator
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: load-generator
         ports:
         - containerPort: 8089
@@ -2476,7 +2476,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-dynatrace-payment
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: payment
         ports:
         - containerPort: 8080
@@ -2539,7 +2539,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-dynatrace-postgres
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: postgresql
         ports:
         - containerPort: 5432
@@ -2615,7 +2615,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-dynatrace-productcatalog
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: product-catalog
         ports:
         - containerPort: 8080
@@ -2687,7 +2687,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-quote
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: quote
         ports:
         - containerPort: 8080
@@ -2763,7 +2763,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-recommendation
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: recommendation
         ports:
         - containerPort: 8080
@@ -2827,7 +2827,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: danatrace/opentelemetry-demo:latest-shipping
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: shipping
         ports:
         - containerPort: 8080
@@ -2885,7 +2885,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.1.3
         image: valkey/valkey:8.1.3-alpine
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: valkey-cart
         ports:
         - containerPort: 6379
@@ -2907,7 +2907,7 @@ spec:
         - --web.listen-address=0.0.0.0:9121
         env: []
         image: oliver006/redis_exporter:v1.14.0
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: valkey-exporter
         ports:
         - containerPort: 9121
