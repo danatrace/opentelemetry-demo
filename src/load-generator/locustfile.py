@@ -199,7 +199,7 @@ class WebsiteUser(HttpUser):
 
     @task(5)
     def flood_home(self):
-        flood_count = get_flagd_value("loadGeneratorFloodHomepage")
+        flood_count = get_flagd_value("loadgeneratorFloodHomepage")
         if flood_count > 0:
             with self.tracer.start_as_current_span("user_flood_home",  context=Context(), attributes={"flood.count": flood_count}):
                 logging.info(f"User flooding homepage {flood_count} times")

@@ -3,11 +3,13 @@
   "flags": {
     "adFailure": {
       "defaultVariant": "off",
-      "description": "Fail ad service",
+      "description": "Fail a percentage of ad service requests",
       "state": "ENABLED",
       "variants": {
-        "off": false,
-        "on": true
+        "off": 0.0,
+        "10%": 0.1,
+        "50%": 0.5,
+        "100%": 1.0
       }
     },
     "adHighCpu": {
@@ -15,8 +17,10 @@
       "description": "Triggers high cpu load in the ad service",
       "state": "ENABLED",
       "variants": {
-        "off": false,
-        "on": true
+        "off": 0,
+        "low": 1,
+        "medium": 2,
+        "high": 4
       }
     },
     "adManualGc": {

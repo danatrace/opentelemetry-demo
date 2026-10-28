@@ -20,8 +20,7 @@ import org.apache.logging.log4j.Logger;
  */
 public class CPULoad {
     private static final Logger logger = LogManager.getLogger(CPULoad.class.getName());
-    private static final int THREAD_COUNT = 4;
-    private boolean running = false;
+    private int runningThreadCount = 0;
     private final List<Logarithmizer> runningWorkers = new ArrayList<>();
     
     private static CPULoad instance;
@@ -38,22 +37,22 @@ public class CPULoad {
     }
 
     /**
-     * Starts or stops the CPU load generation based on the input parameter.
-     * If enabled, it launches worker threads. If disabled, it stops any running threads.
+    * Starts, changes, or stops CPU load based on the requested worker count.
      * 
-     * @param enabled Flag to start (true) or stop (false) the CPU load simulation.
+    * @param threadCount Number of CPU-intensive workers, or zero to stop the simulation.
      */
-    public void execute(Boolean enabled) {
-        if (enabled) {
-            logger.info("High CPU-Load problempattern enabled");
-            if (!running) {
-                spawnLoadWorkers(THREAD_COUNT);
-                running = true;
-            }
-        } else {
-            running = false;
-            stopWorkers();
+    public synchronized void execute(int threadCount) {
+        int requestedThreadCount = Math.max(0, threadCount);
+        if (requestedThreadCount == runningThreadCount) {
+            return;
         }
+
+        stopWorkers();
+        if (requestedThreadCount > 0) {
+            logger.info("High CPU-Load problempattern enabled with {} workers", requestedThreadCount);
+            spawnLoadWorkers(requestedThreadCount);
+        }
+        runningThreadCount = requestedThreadCount;
     }
 
     /**

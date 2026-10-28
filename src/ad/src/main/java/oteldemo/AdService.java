@@ -169,7 +169,7 @@ public final class AdService {
         }
 
         CPULoad cpuload = CPULoad.getInstance();
-        cpuload.execute(ffClient.getBooleanValue(AD_HIGH_CPU_FEATURE_FLAG, false, evaluationContext));
+        cpuload.execute(ffClient.getIntegerValue(AD_HIGH_CPU_FEATURE_FLAG, 0, evaluationContext));
 
         span.setAttribute("app.ads.contextKeys", req.getContextKeysList().toString());
         span.setAttribute("app.ads.contextKeys.count", req.getContextKeysCount());
@@ -201,8 +201,8 @@ public final class AdService {
             Attributes.of(
                 adRequestTypeKey, adRequestType.name(), adResponseTypeKey, adResponseType.name()));
 
-        // Throw 1/10 of the time to simulate a failure when the feature flag is enabled
-        if (ffClient.getBooleanValue(AD_FAILURE, false, evaluationContext) && random.nextInt(10) == 0) {
+        double failureRate = ffClient.getDoubleValue(AD_FAILURE, 0.0, evaluationContext);
+        if (random.nextDouble() < failureRate) {
           throw new StatusRuntimeException(Status.UNAVAILABLE);
         }
 

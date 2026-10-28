@@ -273,7 +273,7 @@ opentelemetry-demo:
         - name: LOCUST_HOST
           value: http://frontend-proxy:8080
         - name: LOCUST_USERS
-          value: "2"
+          value: "8"
         - name: LOCUST_HEADLESS
           value: "true"
         - name: DT_RELEASE_VERSION
